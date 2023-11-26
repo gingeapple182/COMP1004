@@ -15,7 +15,7 @@ aim to create a hypertext fiction game
 1. non graphic based exploration
    - move around a board with loot/enemies/objective
    - aim to save princess
-   - 
+
 ## sprint goals
 1. [ ] research a background for *why* a hypertext game is important? //its really not since i hadn't heard of them until this module
 2. [ ] once decided on specific plan, make my **project vision** for what I aim to achieve
@@ -43,7 +43,7 @@ aim to create a hypertext fiction game
 3. final/complexest UML diagram - wtf is a UML diagram??
 4. *high level* summary of issues/challenges - steep af learning curve of making a game without being taught ANYTHING games
 5. poster??
-   [ ] make 2-5 in a powerpoint
+   - [ ] make 2-5 in a powerpoint
 
 ### extra stuff 
 * final project plan
@@ -57,3 +57,4 @@ aim to create a hypertext fiction game
   - architecture?
 * reflective account of the issues/challenges
   - 500 words
+* use this site to check the plagarism score before submitting [Turnitin](http://www.turnitinuk.com/)
