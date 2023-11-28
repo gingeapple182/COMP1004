@@ -3,18 +3,20 @@
 aim to create a hypertext fiction game 
 
 ## ideas
-1. maze
-   - draw out a maze and have each page being the junctions
-   - dead ends to be either fails or just a way to turn around
-1. escape from house
-   - need to find a key/crowbar
-   - could accidentally set off something noisy to get caught
-1. >//idk context here
-   - find parts to repair object
-   - repairs done in wrong order it fails/kills you
-1. non graphic based exploration
-   - move around a board with loot/enemies/objective
-   - aim to save princess
+1.	Maze
+	- Have each junction be where the player can choose a direction
+	- Some dead ends allow you to turn around
+	- Some could be a failed screen/animation?
+	- End screens could show time spent trapped in the maze
+2.	Escape from somewhere
+	- Multiple rooms with items to pickup 
+	- Have to collect certain items to access rooms
+	- Could have certain items create noise​ to get you caught/fail
+3.	RPG style game (the Bards tale/wasteland/Ultima1)
+	- Small coordinates-based game
+	- Each point moved to could say generic compass hints
+	- Encounters/fights on certain points
+	- Win lose battles based off items found
 
 ## sprint goals
 1. [ ] research a background for *why* a hypertext game is important? //its really not since i hadn't heard of them until this module
