@@ -8,15 +8,15 @@ aim to create a hypertext fiction game
 	- Some dead ends allow you to turn around
 	- Some could be a failed screen/animation?
 	- End screens could show time spent trapped in the maze
-2.	Escape from somewhere
-	- Multiple rooms with items to pickup 
-	- Have to collect certain items to access rooms
-	- Could have certain items create noise​ to get you caught/fail
-3.	RPG style game (the Bards tale/wasteland/Ultima1)
-	- Small coordinates-based game
-	- Each point moved to could say generic compass hints
-	- Encounters/fights on certain points
-	- Win lose battles based off items found
+> 2.	Escape from somewhere
+>	- Multiple rooms with items to pickup 
+>	- Have to collect certain items to access rooms
+>	- Could have certain items create noise​ to get you caught/fail
+> 3.	RPG style game (the Bards tale/wasteland/Ultima1)
+>	- Small coordinates-based game
+>	- Each point moved to could say generic compass hints
+>	- Encounters/fights on certain points
+>	- Win lose battles based off items found
 
 ## sprint goals
 1. [ ] research a background for *why* a hypertext game is important? //its really not since i hadn't heard of them until this module
