@@ -6,7 +6,7 @@ class Player {
   }
 
   draw() {
-    fill (0, 0, 0);
+    fill (255, 128, 0);
     for (let b of this.body) {
       rect(b.x, b.y, width/GRID_SIZE, height/GRID_SIZE)
     }
@@ -31,6 +31,12 @@ class Player {
       this.body[0].x -= 1;
     } else if (keyIsDown(UP_ARROW)) {
       this.body[0].y -= 1;
+    }
+  }
+
+  ratEncounter() {
+    if (this.body[0].x == rat.x && this.body[0].y == rat.y) {
+      return true;
     }
   }
 

@@ -1,10 +1,13 @@
 const GRID_SIZE = 20;
 
 let player;
+let rat;
 
 function setup() {
   createCanvas(700, 700);
   player = new Player();
+  rat = new Rat();
+
 }
 
 function draw() {
@@ -18,7 +21,10 @@ function draw() {
     }
   }
   player.update();
+  if (player.ratEncounter()) {
+    rat.spawn();
+  }
   player.draw();
-  
+  rat.draw();
 }
 
