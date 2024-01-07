@@ -3,6 +3,7 @@ const GRID_SIZE = 20;
 //declare characters
 let player;
 let rat;
+let encounter = "";
 
 //create canvas + characters
 function setup() {
@@ -26,9 +27,17 @@ function draw() {
 //player interactions
   player.update();
   if (player.ratEncounter()) {
+    encounter = "oh no its a rat!";
     rat.spawn();
+  } else {
+    encounter = "";
   }
+  fill (0);
+  textSize(32);
+  text(encounter, 10, 50);
   player.draw();
   rat.draw();
 }
+
+
 
