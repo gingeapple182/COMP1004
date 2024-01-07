@@ -35,8 +35,11 @@ class Player {
   }
 
   ratEncounter() {
-    if (this.body[0].x == rat.x && this.body[0].y == rat.y) {
+    let d = dist(this.body[0].x, this.body[0].y, rat.x, rat.y);
+    if (d < GRID_SIZE) {
       return true;
+    } else {
+      return false;
     }
   }
 
