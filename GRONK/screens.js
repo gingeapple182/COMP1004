@@ -20,6 +20,15 @@ function drawMap() {
   }
 }
 
+function pauseScreen() {
+  background(0); //set background to black
+  fill(255); //set text colour to white
+  textSize(32);
+  text("Game Paused", width/2, height/2);
+  text("Press 'p' to resume", width/2, height/2+50);
+}
+
+
 function youDied() {
   background(0);
   fill(255, 0, 0);
@@ -36,14 +45,7 @@ function gameOver() {
   text("Game Over", width/3, height/3);
   textSize(25);
   text("Press space to restart", width/3, height/3+30);
-}
-
-function pauseScreen() {
-  background(0); //set background to black
-  fill(255); //set text colour to white
-  textSize(32);
-  text("Game Paused", width/2, height/2);
-  text("Press 'p' to resume", width/2, height/2+50);
+  text("Press 'r' to go back to home", width/3, height/3+60);
 }
 
 function ratFight() {

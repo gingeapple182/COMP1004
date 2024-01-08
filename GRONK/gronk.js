@@ -28,8 +28,11 @@ function draw()
     }
     
     player.draw();
+    player.healthBar();
     rat.draw();
-
+  if (player.health <= 0){
+    gameState = "YOU_DIED";
+  }
   } else if (gameState === "NEW_GAME") {
     newGame();
   } else if (gameState === "PAUSE") {

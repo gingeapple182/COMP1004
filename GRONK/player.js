@@ -3,6 +3,7 @@ class Player {
     this.body = [];
     this.body.push({x: width/2, y: height/2});
     this.dir = 0;
+    this.health = 100;
   }
 //player looks
   draw() {
@@ -15,15 +16,20 @@ class Player {
   move() {
 //player movement when arrow keys held down
     if (keyIsDown(RIGHT_ARROW)) {
-      this.body[0].x += 1;  
+      this.body[0].x += 2;  
     } else if (keyIsDown(DOWN_ARROW)) {
-      this.body[0].y += 1;
+      this.body[0].y += 2;
     } else if (keyIsDown(LEFT_ARROW)) {
-      this.body[0].x -= 1;
+      this.body[0].x -= 2;
     } else if (keyIsDown(UP_ARROW)) {
-      this.body[0].y -= 1;
+      this.body[0].y -= 2;
     }
   } //end move
+
+  healthBar() {
+    fill(255, 0, 0);
+    rect(20, 20, this.health * 2, 20);
+  }
 
 //detect collision with rat
   ratEncounter() {
