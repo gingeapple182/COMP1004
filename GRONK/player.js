@@ -8,11 +8,11 @@ class Player {
   draw() {
     fill (255, 128, 0);
     for (let b of this.body) {
-      rect(b.x, b.y, width/GRID_SIZE, height/GRID_SIZE)
+      rect(b.x-width/(2*GRID_SIZE), b.y-height/(2*GRID_SIZE), width/GRID_SIZE, height/GRID_SIZE)
     }
   }
 
-  update() {
+  move() {
 //player movement when arrow keys held down
     if (keyIsDown(RIGHT_ARROW)) {
       this.body[0].x += 1;  
@@ -23,8 +23,7 @@ class Player {
     } else if (keyIsDown(UP_ARROW)) {
       this.body[0].y -= 1;
     }
-  }
-//healthPoints()
+  } //end move
 
 //detect collision with rat
   ratEncounter() {

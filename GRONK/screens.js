@@ -1,3 +1,13 @@
+function newGame() {
+  background(0);
+  fill(0, 204, 0);
+  textSize(40);
+  text("GRONK", width/4, height/4);
+  fill(255);
+  textSize(25);
+  text("Press enter to start", width/4, height/2);
+}
+
 function drawMap() {
   background(121, 118, 90);
   for (let x = 0; x < width; x += width/GRID_SIZE) {
