@@ -4,40 +4,69 @@ const GRID_SIZE = 20;
 let player;
 let rat;
 let encounter = "";
+let gameState = "PLAY";
 
 //create canvas + characters
-function setup() {
+function setup() 
+{
   createCanvas(700, 700);
   player = new Player();
   rat = new Rat();
+} //end setup()
 
-}
+function draw() 
+{
+  if (gameState === "PLAY") {
+    drawMap();
+//player interactions
+    player.update();
+    if (player.ratEncounter()) {
+      gameState = "RAT_FIGHT";
+      rat.spawn();
+    } else {
+      encounter = "";
+    }
+    
+    player.draw();
+    rat.draw();
+  } else if (gameState === "PAUSE") {
+    pauseScreen();
+  } else if (gameState === "RAT_FIGHT") {
+    ratFight();
+  } else if (gameState === "YOU_DIED") {
+    youDied();
+  } else if (gameState === "GAME_OVER") {
+    gameOver();
+  }
+} //end draw()
 
-//draw in background(grid)
-function draw() {
-  background(121, 118, 90);
-  for (let x = 0; x < width; x += width/GRID_SIZE) {
-    for (let y = 0; y < height; y += height/GRID_SIZE) {
-      stroke(140, 118, 90);
-      strokeWeight(1);
-      line(x, 0, x, height);
-      line(0, y, width, y);
+function keyPressed() 
+{
+  if (key === 'p' || key === 'P') {
+    if (gameState === "PLAY") {
+      gameState = "PAUSE";
+    } else if (gameState === "PAUSE") {
+      gameState = "PLAY";
     }
   }
-//player interactions
-  player.update();
-  if (player.ratEncounter()) {
-    encounter = "oh no its a rat!";
-    rat.spawn();
-  } else {
-    encounter = "";
+  if (key === 'f' || key === 'F'){
+    if (gameState === "RAT_FIGHT") {
+      gameState = "YOU_DIED";
+    }
   }
-  fill (0);
-  textSize(32);
-  text(encounter, 10, 50);
-  player.draw();
-  rat.draw();
-}
-
-
+  if (key === 'r' || key === 'R') {
+    if (gameState === "RAT_FIGHT") {
+      gameState = "PLAY";
+    }
+  }
+  if (key === ' ') {
+    if (gameState === "YOU_DIED") {
+      gameState = "GAME_OVER";
+    }
+    else if (gameState === "GAME_OVER") {
+      gameState = "PLAY";
+      player.body[0] = {x: width/2, y: height/2};
+    }
+  }
+} //end keyPressed()
 

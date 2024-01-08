@@ -24,6 +24,8 @@ class Player {
       this.body[0].y -= 1;
     }
   }
+//healthPoints()
+
 //detect collision with rat
   ratEncounter() {
     let d = dist(this.body[0].x, this.body[0].y, rat.x, rat.y);
