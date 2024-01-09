@@ -21,30 +21,29 @@ aim to create a hypertext fiction game
 1. [ ] research a background for *why* a hypertext game is important? 
 2. [ ] write my **project vision** for what I aim to achieve
 3. [x] create user stories
-4. [ ] reorganise and make *practical* plans for sprints
+4. [x] reorganise and make *practical* plans for sprints
 5. [ ] note issues/challenges likely to face //like the fact ive never coded html/java/css
 6. [x] design a prototype
 7. [ ] fill out the design document template?
 8. [ ] UML diagrams - use cases - classes? - interaction disgrams 
 9. [ ] product backlog (failed parts of sprints?)
-10. [x] sprint plans - this?
+10. [x] sprint plans - github planner
 
-## interim video
+## interim video - 15/01/24
 4 minute video covering the follwoing topics regarding my project progress
 * Project vision + background
 * project plan and already completed sprints
 * UML models
 * prototype
-* description of challenges/issues (dont complain about labs)
+* description of challenges/issues
 
 ## final presentation
 6 minute presentation covering the following
-1. the running programme - not sure how to show fully if its meant to be a fully functioning game
-2. final project plan + sprints
-3. final/complexest UML diagram - wtf is a UML diagram??
-4. *high level* summary of issues/challenges - steep af learning curve of making a game without being taught ANYTHING games
-5. poster??
-   - [ ] make 2-5 in a powerpoint
+1. functioning game
+2. project plan + sprints
+3. UML diagrams
+4. summary of issues/challenges
+5. poster?
 
 ### extra stuff 
 * final project plan
