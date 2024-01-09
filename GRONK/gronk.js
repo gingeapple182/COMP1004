@@ -3,16 +3,22 @@ const GRID_SIZE = 25;
 //declare characters
 let player;
 let rat;
+let sword;
+let weapon = false;
 let encounter = "";
 let gameState = "NEW_GAME";
 
 //create canvas + characters
 function setup() 
 {
-  createCanvas(700, 700);
+  createCanvas(700, 700); 	//(windowWidth, 700);
   player = new Player();
   rat = new Rat();
+  sword = new Sword();
 } //end setup()
+				//function windowResized() {
+				//  resizeCanvas(windowWidth, windowHeight);
+				//}
 
 function draw() 
 {
@@ -26,22 +32,31 @@ function draw()
     } else {
       encounter = "";
     }
-    
     player.draw();
     player.healthBar();
     rat.draw();
+    sword.draw();
+  if (player.swordGet()) {
+    weapon = true;
+    sword.visible = false;
+  }
   if (player.health <= 0){
     gameState = "YOU_DIED";
   }
-  } else if (gameState === "NEW_GAME") {
+  } 
+  if (gameState === "NEW_GAME") {
     newGame();
-  } else if (gameState === "PAUSE") {
+  } 
+  if (gameState === "PAUSE") {
     pauseScreen();
-  } else if (gameState === "RAT_FIGHT") {
+  } 
+  if (gameState === "RAT_FIGHT") {
     ratFight();
-  } else if (gameState === "YOU_DIED") {
+  } 
+  if (gameState === "YOU_DIED") {
     youDied();
-  } else if (gameState === "GAME_OVER") {
+  } 
+  if (gameState === "GAME_OVER") {
     gameOver();
   }
 } //end draw()

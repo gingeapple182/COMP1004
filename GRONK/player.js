@@ -11,7 +11,7 @@ class Player {
     for (let b of this.body) {
       rect(b.x-width/(2*GRID_SIZE), b.y-height/(2*GRID_SIZE), width/GRID_SIZE, height/GRID_SIZE)
     }
-  }
+  } //end draw()
 
   move() {
 //player movement when arrow keys held down
@@ -24,12 +24,16 @@ class Player {
     } else if (keyIsDown(UP_ARROW)) {
       this.body[0].y -= 2;
     }
-  } //end move
+    this.body[0].x = constrain(this.body[0].x, 10, width - GRID_SIZE + 10);
+    this.body[0].y = constrain(this.body[0].y, 10, height - GRID_SIZE + 10);
+  } //end move()
 
   healthBar() {
+    fill(255);
+    rect(20, 20, 200, 20);
     fill(255, 0, 0);
     rect(20, 20, this.health * 2, 20);
-  }
+  } //end healthBar()
 
 //detect collision with rat
   ratEncounter() {
@@ -39,6 +43,15 @@ class Player {
     } else {
       return false;
     }
-  }
+  } //end ratEncounter()
+
+  swordGet() {
+    let d = dist(this.body[0].x, this.body[0].y, sword.x, sword.y);
+    if (d < GRID_SIZE) {
+      return true;
+    } else {
+      return false;
+    }
+  } //end swordGet()
 
 }

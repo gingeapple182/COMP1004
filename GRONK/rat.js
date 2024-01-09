@@ -16,3 +16,17 @@ class Rat {
   }
 
 }
+
+class Sword {
+  constructor() {
+    this.x = 660;
+    this.y = 20;
+    this.visible = true;
+  }
+  draw() {
+    if (this.visible) {
+      fill(255, 255, 102);
+      rect(this.x, this.y, 20, 20);
+    }
+  }
+}
