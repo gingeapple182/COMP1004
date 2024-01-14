@@ -6,7 +6,7 @@ let rat;
 let sword;
 let weapon = false;
 let encounter = "";
-let gameState = "NEW_GAME";
+let gameState = "START_MENU";
 
 //create canvas + characters
 function setup() 
@@ -16,14 +16,12 @@ function setup()
   rat = new Rat();
   sword = new Sword();
 } //end setup()
-				//function windowResized() {
-				//  resizeCanvas(windowWidth, windowHeight);
-				//}
 
 function draw() 
 {
   if (gameState === "PLAY") {
     drawMap();
+    player.statusBarBack();
 //player interactions
     player.move();
     if (player.ratEncounter()) {
@@ -43,20 +41,15 @@ function draw()
   if (player.health <= 0){
     gameState = "YOU_DIED";
   }
-  } 
-  if (gameState === "NEW_GAME") {
-    newGame();
-  } 
-  if (gameState === "PAUSE") {
+  } else if (gameState === "START_MENU") {
+    startMenu();
+  } else if (gameState === "PAUSE") {
     pauseScreen();
-  } 
-  if (gameState === "RAT_FIGHT") {
+  } else if (gameState === "RAT_FIGHT") {
     ratFight();
-  } 
-  if (gameState === "YOU_DIED") {
+  } else if (gameState === "YOU_DIED") {
     youDied();
-  } 
-  if (gameState === "GAME_OVER") {
+  } else if (gameState === "GAME_OVER") {
     gameOver();
   }
 } //end draw()

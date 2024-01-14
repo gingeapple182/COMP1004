@@ -17,10 +17,7 @@ function keyPressed()
   }
   if (key === 'q' || key === 'Q') {
     if (gameState === "PAUSE") {
-      gameState = "NEW_GAME";
-      player.body[0] = {x: width/2, y: height/2};
-      player.health = 100;
-      sword.spawn();
+      gameState = "START_MENU";
     }
   }
   if (key === 'r' || key === 'R') {
@@ -28,26 +25,22 @@ function keyPressed()
       gameState = "PLAY";
       player.health -= 10;
     } else if (gameState = "GAME_OVER") {
-      gameState = "NEW_GAME";
-
+      gameState = "START_MENU";
     }
   }
   if (key === ' ') {
     if (gameState === "YOU_DIED") {
       gameState = "GAME_OVER";
     } else if (gameState === "GAME_OVER") {
-      gameState = "PLAY";
-      player.body[0] = {x: width/2, y: height/2};
-      player.health = 100;
+      newGame();
     }
   }
   if (key === 'Enter') {
-    if (gameState === "NEW_GAME") {
-      gameState = "PLAY";
-      player.body[0] = {x: width/2, y: height/2};
-      player.health = 100;
-      sword.spawn();
+    if (gameState === "START_MENU") {
+      newGame();
     }
   }
 } //end keyPressed()
+
+
 
