@@ -25,15 +25,20 @@ class Player {
       this.body[0].y -= 2;
     }
     this.body[0].x = constrain(this.body[0].x, 10, width - GRID_SIZE + 10);
-    this.body[0].y = constrain(this.body[0].y, 10, height - GRID_SIZE + 10);
+    this.body[0].y = constrain(this.body[0].y, 10, height - GRID_SIZE - 60 + 10);
   } //end move()
 
   healthBar() {
     fill(255);
-    rect(20, 20, 200, 20);
+    rect(20, 660, 200, 20);
     fill(255, 0, 0);
-    rect(20, 20, this.health * 2, 20);
+    rect(20, 660, this.health * 2, 20);
   } //end healthBar()
+
+  statusBarBack() {
+    fill(128, 128, 128);
+    rect(0, 640, 700, 60);
+  }
 
 //detect collision with rat
   ratEncounter() {

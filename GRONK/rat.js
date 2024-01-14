@@ -5,7 +5,7 @@ class Rat {
 //allow rat to respawn after encounter
   spawn() {
     let randX = random(width);
-    let randY = random(height);
+    let randY = random(height - 70);
     this.x = randX - randX % (width / GRID_SIZE) + width/(2*GRID_SIZE);
     this.y = randY - randY % (height / GRID_SIZE) + height/(2*GRID_SIZE);
   }
@@ -22,6 +22,11 @@ class Sword {
     this.x = 660;
     this.y = 20;
     this.visible = true;
+  }
+  spawn() {
+    this.x = 660; // reset x position
+    this.y = 20; // reset y position
+    this.visible = true; // make the sword visible
   }
   draw() {
     if (this.visible) {
