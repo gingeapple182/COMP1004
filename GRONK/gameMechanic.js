@@ -1,4 +1,7 @@
+//GAME STATES FOR HYPERTEXT INTERACTIVITY
+
 function ratFight() {
+  textAlign(LEFT);
   background(0); //set background to black
   fill(255); //set text colour to white
   textSize(20);

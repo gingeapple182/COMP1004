@@ -28,27 +28,21 @@ class Player {
     this.body[0].y = constrain(this.body[0].y, 10, height - GRID_SIZE - 60 + 10);
   } //end move()
 
-  healthBar() {
-    fill(255);
-    rect(20, 660, 200, 20);
-    fill(255, 0, 0);
-    rect(20, 660, this.health * 2, 20);
-  } //end healthBar()
-
-  statusBarBack() {
-    fill(128, 128, 128);
-    rect(0, 640, 700, 60);
-  }
-
 //detect collision with rat
-  ratEncounter() {
+  ratEncounter(rat) {
     let d = dist(this.body[0].x, this.body[0].y, rat.x, rat.y);
     if (d < GRID_SIZE) {
+      //this.defeatRat(rat);
       return true;
     } else {
       return false;
     }
   } //end ratEncounter()
+
+  defeatRat(rat) {
+    rat.defeated = true;
+    rat.visible = false;
+  }
 
   swordGet() {
     let d = dist(this.body[0].x, this.body[0].y, sword.x, sword.y);
