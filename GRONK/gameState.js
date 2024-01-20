@@ -1,4 +1,4 @@
-p//GAME STATES FOR VISUALS
+//GAME STATES FOR VISUALS
 
 function playGame() {
   textSize(15);
@@ -9,6 +9,7 @@ function playGame() {
     weaponBox();
   } else {
     weaponEquipped();
+    console.log('Weapon found');
   }
 
   // Player interactions
@@ -20,7 +21,7 @@ function playGame() {
   for (let rat of rats) {
     rat.draw();
     if (player.ratEncounter(rat)) {
-      gameState = "RAT_FIGHT";
+      gameState = "RAT_ENCOUNTER";
       if (ratsDefeated <= 5) {
         console.log('Spawning rat...');
         rat.spawn();
@@ -42,6 +43,9 @@ function playGame() {
   if (player.health <= 0){
     gameState = "YOU_DIED";
   }
+  if (ratsDefeated === 10) {
+    gameState = "VICTORY";
+  }
 }
 
 function startMenu() {
@@ -57,6 +61,16 @@ function startMenu() {
   text("Created by gingeapple182", width - width/3, height - height / 15);
 }
 
+function levelStart() {
+  background(0);
+  fill(255);
+  textSize(25);
+  textAlign(LEFT);
+  text("Gronk you must defeat the rats surrounding us!", width/4, height/2);
+  textSize(20);
+  text("Press enter to start", width/4, height/2+30);
+} 
+
 function pauseScreen() {
   background(0); //set background to black
   fill(255); //set text colour to white
@@ -67,6 +81,16 @@ function pauseScreen() {
   text("Press 'p' to resume", width/2, height/2+40);
   text("Press 'q' to quit to main menu", width/2, height/2+70);
 }
+
+function victory() {
+  background(0);
+  fill(255);
+  textSize(40);
+  textAlign(LEFT);
+  text("Congratulations!", width/4, height/2);
+  textSize(25);
+  text("Press enter to quit to main menu", width/4, height/2+40);
+}  
 
 function youDied() {
   background(0);
