@@ -19,17 +19,17 @@ aim to create a hypertext fiction game
 
 ## sprint goals
 1. [ ] research a background for *why* a hypertext game is important? 
-2. [ ] write my **project vision** for what I aim to achieve
+2. [x] write my **project vision** for what I aim to achieve
 3. [x] create user stories
 4. [x] reorganise and make *practical* plans for sprints
 5. [ ] note issues/challenges likely to face //like the fact ive never coded html/java/css
 6. [x] design a prototype
 7. [ ] fill out the design document template?
 8. [ ] UML diagrams - use cases - classes? - interaction disgrams 
-9. [ ] product backlog (failed parts of sprints?)
+9. [x] product backlog (failed parts of sprints?)
 10. [x] sprint plans - github planner
 
-## interim video - 15/01/24
+## interim video - 15/01/24 - COMPLETED
 4 minute video covering the follwoing topics regarding my project progress
 * Project vision + background
 * project plan and already completed sprints
