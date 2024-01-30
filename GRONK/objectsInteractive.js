@@ -39,7 +39,7 @@ class Sword {
   }
   draw() {
     if (this.visible) {
-      fill(0, 190, 0);
+      fill(0, 240, 0);
       noStroke();
       rect(this.x, this.y, 20, 20);
     }
