@@ -11,6 +11,13 @@ let weapon = false;
 let encounter = "";
 let cubes = [];
 let gameState = "START_MENU";
+let playerImage;
+let knifeImage;
+
+function preload() {
+  playerImage = loadImage('images/playerDefault.png');
+  knifeImage = loadImage('images/knifeBasic.png');
+}
 
 // Setup function: creates the canvas, initializes the characters, and generates the cubes
 function setup() {

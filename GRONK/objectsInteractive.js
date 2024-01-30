@@ -22,6 +22,8 @@ class Rat {
     if (this.visible) {
       fill(128, 128, 128);
       rect(this.x - width/(2*GRID_SIZE), this.y - height/(2*GRID_SIZE), width/GRID_SIZE, height/GRID_SIZE);
+      //image(knifeImage, this.x - width/(2*GRID_SIZE), this.y - height/(2*GRID_SIZE), width/GRID_SIZE, height/GRID_SIZE);
+
     }
   }
 }
@@ -39,10 +41,10 @@ class Sword {
   }
   draw() {
     if (this.visible) {
-      fill(0, 240, 0);
-      noStroke();
-      rect(this.x, this.y, 20, 20);
+      //fill(0, 240, 0);
+      //noStroke();
+      image(knifeImage, this.x, this.y, 20, 20);
     }
-    stroke(0);
+    //stroke(0);
   }
 }

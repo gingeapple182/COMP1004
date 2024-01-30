@@ -1,3 +1,4 @@
+
 class Player {
   constructor() {
     this.body = [];
@@ -7,9 +8,11 @@ class Player {
   }
 //player looks
   draw() {
-    fill (255, 128, 0);
+    //fill (255, 128, 0);
+    
     for (let b of this.body) {
-      rect(b.x-width/(2*GRID_SIZE), b.y-height/(2*GRID_SIZE), width/GRID_SIZE, height/GRID_SIZE)
+      //rect(b.x-width/(2*GRID_SIZE), b.y-height/(2*GRID_SIZE), width/GRID_SIZE, height/GRID_SIZE)
+      image(playerImage, b.x-width/(2*GRID_SIZE), b.y-height/(2*GRID_SIZE), width/GRID_SIZE * 1.5, height/GRID_SIZE * 1.5);
     }
   } //end draw()
 
