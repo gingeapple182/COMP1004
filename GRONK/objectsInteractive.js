@@ -40,7 +40,7 @@ class Sword {
   }
   draw() {
     if (this.visible) {
-      image(knifeImage, this.x, this.y, 20, 20);
+      image(knifeImage, this.x, this.y, 30, 30);
     }
   }
 }
