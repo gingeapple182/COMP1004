@@ -12,10 +12,17 @@ let encounter = "";
 let cubes = [];
 let gameState = "START_MENU";
 let playerImage;
+let playerFront;
+let playerBack;
+let playerLeft;
+let playerRight;
 let knifeImage;
 
 function preload() {
-  playerImage = loadImage('images/playerDefault.png');
+  playerFront = loadImage('images/playerDefault.png');
+  playerBack = loadImage('images/playerBack.png');
+  playerLeft = loadImage('images/playerLeft.png');
+  playerRight = loadImage('images/playerRight.png');
   knifeImage = loadImage('images/knifeBasic.png');
 }
 

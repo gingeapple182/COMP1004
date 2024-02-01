@@ -4,6 +4,7 @@ function playGame() {
   textSize(15);
   drawMap();
   statusBarBack();
+  healthBar();
   objective();
   if (weapon == false) {  //can also use (!weapon)
     weaponBox();
@@ -15,7 +16,6 @@ function playGame() {
   // Player interactions
   player.move();
   player.draw();
-  healthBar();
   sword.draw();
 
   for (let rat of rats) {

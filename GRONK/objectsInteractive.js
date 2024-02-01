@@ -2,6 +2,7 @@ class Rat {
   constructor() {
     this.x = 0;
     this.y = 0;
+    this.ratRadius = min(width, height) / (2 * GRID_SIZE); // Define ratRadius here
     this.spawn();
     this.visible = true;
     this.defeated = false;
@@ -12,7 +13,7 @@ class Rat {
     let randX, randY;
     do {
       randX = random(width);
-      randY = random(height - 70);
+      randY = random(height - 70 - 60);
     } while (dist(randX, randY, this.x, this.y) < GRID_SIZE);
     this.x = randX - randX % (width / GRID_SIZE) + width/(2*GRID_SIZE);
     this.y = randY - randY % (height / GRID_SIZE) + height/(2*GRID_SIZE);
@@ -21,9 +22,7 @@ class Rat {
   draw() {
     if (this.visible) {
       fill(128, 128, 128);
-      rect(this.x - width/(2*GRID_SIZE), this.y - height/(2*GRID_SIZE), width/GRID_SIZE, height/GRID_SIZE);
-      //image(knifeImage, this.x - width/(2*GRID_SIZE), this.y - height/(2*GRID_SIZE), width/GRID_SIZE, height/GRID_SIZE);
-
+      circle(this.x, this.y, this.ratRadius * 2, this.ratRadius * 2);
     }
   }
 }
@@ -41,10 +40,7 @@ class Sword {
   }
   draw() {
     if (this.visible) {
-      //fill(0, 240, 0);
-      //noStroke();
       image(knifeImage, this.x, this.y, 20, 20);
     }
-    //stroke(0);
   }
 }
