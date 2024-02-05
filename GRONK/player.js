@@ -5,12 +5,13 @@ class Player {
     this.playerRadius = width/GRID_SIZE;
     this.dir = 0;
     this.health = 100;
+    this.currentSprite = 0;
     this.playerImage = playerFront;
   }
 //player looks
   draw() {
     for (let b of this.body) {
-      image(this.playerImage, b.x - this.playerRadius, b.y - this.playerRadius, this.playerRadius * 2, this.playerRadius * 2);
+      image(sprites[this.currentSprite], b.x - this.playerRadius, b.y - this.playerRadius, this.playerRadius * 2, this.playerRadius * 2);
     }
   } //end draw()
 
@@ -18,18 +19,18 @@ class Player {
 //player movement when arrow keys held down
     if (keyIsDown(RIGHT_ARROW)) {
       this.body[0].x += 2;
-      this.playerImage = playerRight;
+      this.currentSprite = 3;
     } else if (keyIsDown(DOWN_ARROW)) {
       this.body[0].y += 2;
-      this.playerImage = playerFront;
+      this.currentSprite = 0;
     } else if (keyIsDown(LEFT_ARROW)) {
       this.body[0].x -= 2;
-      this.playerImage = playerLeft;
+      this.currentSprite = 1;
     } else if (keyIsDown(UP_ARROW)) {
       this.body[0].y -= 2;
-      this.playerImage = playerBack;
+      this.currentSprite = 2;
     } else {
-      this.playerImage = playerFront;
+      this.currentSprite = 0;
     }
     this.body[0].x = constrain(this.body[0].x, this.playerRadius, width - this.playerRadius);
     this.body[0].y = constrain(this.body[0].y, this.playerRadius, height - this.playerRadius - 60);

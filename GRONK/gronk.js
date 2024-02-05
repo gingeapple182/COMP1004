@@ -11,18 +11,19 @@ let weapon = false;
 let encounter = "";
 let cubes = [];
 let gameState = "START_MENU";
+//image names
 let playerImage;
 let playerFront;
 let playerBack;
 let playerLeft;
 let playerRight;
 let knifeImage;
+//sprite handling
+let spriteSize = 192;
+let sprites = [];
 
 function preload() {
-  playerFront = loadImage('images/playerDefault.png');
-  playerBack = loadImage('images/playerBack.png');
-  playerLeft = loadImage('images/playerLeft.png');
-  playerRight = loadImage('images/playerRight.png');
+  playerSprite = loadImage('images/playerSpin.png');
   knifeImage = loadImage('images/knifeBasic.png');
 }
 
@@ -30,11 +31,18 @@ function preload() {
 function setup() {
   createCanvas(700, 700);
   player = new Player();
+  for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 2; j++) {
+      let img = playerSprite.get(j * spriteSize, i * spriteSize, spriteSize, spriteSize);
+      sprites.push(img);
+    }
+  }
   sword = new Sword();
   for (let i = 0; i < 5; i++) {
     rats[i] = new Rat();
   }
 }
+
 function resetGame() {
   // Reset all game variables to their initial state
   player = new Player();
