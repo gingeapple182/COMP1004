@@ -13,7 +13,10 @@ let encounter = "";
 let cubes = [];
 let gameState = "START_MENU";
 //image names
-let gronkTitle;
+let screenState;
+let screenSize = 700
+let screens = [];
+let currentScreen = 0;
 let playerImage;
 let knifeImage;
 //sprite handling
@@ -21,15 +24,23 @@ let spriteSize = 192;
 let sprites = [];
 
 function preload() {
-  gronkTitle = loadImage('images/gronkTitle.png');
-  playerSprite = loadImage('images/playerSpin.png');
-  knifeImage = loadImage('images/knifeBasic.png');
+  screenState = loadImage('images/screenStates.png'); //load in ui templates
+  playerSprite = loadImage('images/playerSpin.png'); //load in player sprites
+  knifeImage = loadImage('images/knifeBasic.png'); //load in weapon sprite
 }
 
 // Setup function: creates the canvas, initializes the characters, and generates the cubes
 function setup() {
   createCanvas(700, 700);
   player = new Player();
+  //load spritesheet for game screens
+  for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 3; j++) {
+      let img = screenState.get(j * screenSize, i * screenSize, screenSize, screenSize);
+      screens.push(img);
+    }
+  }
+  //load spritesheet for player
   for (let i = 0; i < 2; i++) {
     for (let j = 0; j < 2; j++) {
       let img = playerSprite.get(j * spriteSize, i * spriteSize, spriteSize, spriteSize);
@@ -53,6 +64,7 @@ function resetGame() {
   ratsDefeated = 0;
   weapon = false;
   encounter = "";
+  noStroke();
 }
 
 // Draw function: called continuously by p5.js, controls game logic
@@ -124,11 +136,11 @@ function keyPressed()
     if (gameState === "RAT_ENCOUNTER") {
       gameState = "RAT_BITE";
       player.health -= 10;
-    } else if (gameState = "RAT_FIGHT") {
+    } else if (gameState === "RAT_FIGHT") {
       gameState = "PLAY";
-    } else if (gameState = "RAT_BITE") {
+    } else if (gameState === "RAT_BITE") {
       gameState = "PLAY";
-    } else if (gameState = "GAME_OVER") {
+    } else if (gameState === "GAME_OVER") {
       gameState = "START_MENU";
     }
   }
