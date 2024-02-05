@@ -7,6 +7,7 @@ const GRID_SIZE = 25;
 let player, sword;
 let rats = [];
 let ratsDefeated = 0;
+let textBox;
 let weapon = false;
 let encounter = "";
 let cubes = [];

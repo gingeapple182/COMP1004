@@ -1,6 +1,7 @@
 //GAME STATES FOR VISUALS
 
 function playGame() {
+  console.log("playGame function called");
   textSize(15);
   drawMap();
   statusBarBack();
@@ -49,6 +50,7 @@ function playGame() {
 }
 
 function startMenu() {
+  console.log("startMenu function called");
   //background(0);
   //fill(0, 204, 0);
   //textSize(40);
@@ -63,6 +65,7 @@ function startMenu() {
 }
 
 function levelStart() {
+  console.log("levelStart function called");
   background(0);
   fill(255);
   textSize(25);
@@ -73,6 +76,7 @@ function levelStart() {
 } 
 
 function pauseScreen() {
+  console.log("pauseScreen function called");
   background(0); //set background to black
   fill(255); //set text colour to white
   textSize(32);
@@ -84,6 +88,7 @@ function pauseScreen() {
 }
 
 function victory() {
+  console.log("victory function called");
   background(0);
   fill(255);
   textSize(40);
@@ -94,6 +99,7 @@ function victory() {
 }  
 
 function youDied() {
+  console.log("youDied function called");
   background(0);
   fill(255, 0, 0);
   textSize(40);
@@ -104,6 +110,7 @@ function youDied() {
 }
 
 function gameOver() {
+  console.log("gameOver function called");
   background(0);
   fill(255, 0, 0);
   textSize(40);
@@ -115,6 +122,7 @@ function gameOver() {
 }
 
 function newGame() {
+  console.log("newGame function called");
   gameState = "PLAY";
   player.body[0] = {x: width/2, y: height/2};
   player.health = 100;
