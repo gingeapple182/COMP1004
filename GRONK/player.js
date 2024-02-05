@@ -6,7 +6,7 @@ class Player {
     this.dir = 0;
     this.health = 100;
     this.currentSprite = 0;
-    this.playerImage = playerFront;
+    //this.playerImage = playerFront;
   }
 //player looks
   draw() {

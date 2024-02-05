@@ -49,11 +49,12 @@ function playGame() {
 }
 
 function startMenu() {
-  background(0);
-  fill(0, 204, 0);
-  textSize(40);
+  //background(0);
+  //fill(0, 204, 0);
+  //textSize(40);
   textAlign(LEFT);
-  text("GRONK", width/4, height/4);
+  //text("GRONK", width/4, height/4);
+  image(gronkTitle, 0, 0, 700, 700);
   fill(255);
   textSize(25);
   text("Press enter to start", width/4, height/2);

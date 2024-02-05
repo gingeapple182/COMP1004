@@ -12,17 +12,15 @@ let encounter = "";
 let cubes = [];
 let gameState = "START_MENU";
 //image names
+let gronkTitle;
 let playerImage;
-let playerFront;
-let playerBack;
-let playerLeft;
-let playerRight;
 let knifeImage;
 //sprite handling
 let spriteSize = 192;
 let sprites = [];
 
 function preload() {
+  gronkTitle = loadImage('images/gronkTitle.png');
   playerSprite = loadImage('images/playerSpin.png');
   knifeImage = loadImage('images/knifeBasic.png');
 }
