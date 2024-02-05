@@ -1,4 +1,4 @@
-let grass = false;
+/*let grass = false;
 
 // Function for drawing the map
 function drawMap() {
@@ -24,4 +24,4 @@ if (!grass) {
     rect(cube.x, cube.y, cube.size, cube.size);
   }
   stroke(0);
-}
+}*/
