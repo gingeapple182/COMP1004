@@ -33,7 +33,7 @@ class Player {
       this.currentSprite = 0;
     }
     this.body[0].x = constrain(this.body[0].x, this.playerRadius, width - this.playerRadius);
-    this.body[0].y = constrain(this.body[0].y, this.playerRadius, height - this.playerRadius - 60);
+    this.body[0].y = constrain(this.body[0].y, this.playerRadius, height - this.playerRadius - 70);
   } //end move()
 
 //detect collision with rat

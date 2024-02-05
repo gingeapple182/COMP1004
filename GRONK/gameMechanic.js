@@ -3,23 +3,25 @@
 function ratFight() {
   console.log("ratFight function called");
   textAlign(CENTER);
-  background(0); //set background to black
+  currentScreen = 5;
+  image(screens[currentScreen], 0,0, 700, 700);
+  noStroke();
   fill(255);
   textSize(40);
-  text('ENCOUNTER', width/2, height/10);
+  text('ENCOUNTER', width/2, height/9);
   textAlign(LEFT);
-  textBox = 'You have encountered a wild rat, it seems just as scared of you as you are of it, you can choose to attack it to scare it off, or try to get away.';
   textSize(20);
-  textAlign(LEFT);
-  drawText(textBox, width/9, height/5, 250); // Use the drawText function here
+  drawText('You have encountered a wild rat.\nIt seems just as scared of you as you are of it, you can choose to attack it to scare it off, or try to get away.', width/12, height/4, 250);
   text("Press 'f' to fight", width/2, height - height/3+30);
   text("Press 'r' to run away", width/2, height - height/3+60);
   fill(255, 0, 0);
   textSize(12);
   text("Lose 10HP", width/2+200, height - height/3+60);
-  if (weapon === false) {
+  if (!weapon) {
     text("Lose 20HP", width/2+200, height - height/3+30);
   }
+  currentScreen = 4;
+  image(screens[currentScreen], 0,0, 700, 700);
 }
 
 function ratLose() {

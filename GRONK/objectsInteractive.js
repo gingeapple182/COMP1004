@@ -12,12 +12,15 @@ class Rat {
     console.log('Rat spawned!');
     let randX, randY;
     do {
-      randX = random(width);
-      randY = random(height - 70 - 60);
-    } while (dist(randX, randY, this.x, this.y) < GRID_SIZE);
+      randX = random(10 + this.ratRadius, width - 10 - this.ratRadius);
+      randY = random(10 + this.ratRadius, height - 70 - this.ratRadius);
+    } while (dist(randX, randY, this.x, this.y) < GRID_SIZE || dist(randX, randY, width / 2, height / 2) < 100);
     this.x = randX - randX % (width / GRID_SIZE) + width/(2*GRID_SIZE);
     this.y = randY - randY % (height / GRID_SIZE) + height/(2*GRID_SIZE);
-  }
+    // Ensure the rat is within the correct area
+    this.x = constrain(this.x, 10 + this.ratRadius, width - 10 - this.ratRadius);
+    this.y = constrain(this.y, 10 + this.ratRadius, height - 70 - this.ratRadius);
+}
 //rat looks
   draw() {
     if (this.visible) {

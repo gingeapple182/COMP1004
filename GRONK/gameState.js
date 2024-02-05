@@ -1,20 +1,9 @@
 //GAME STATES FOR VISUALS
 
 function playGame() {
-  console.log("playGame function called");
+  console.log('playGame function called');
   textSize(15);
   drawMap();
-  statusBarBack();
-  healthBar();
-  objective();
-  if (weapon == false) {  //can also use (!weapon)
-    weaponBox();
-  } else {
-    weaponEquipped();
-    console.log('Weapon found');
-  }
-
-  // Player interactions
   player.move();
   player.draw();
   sword.draw();
@@ -22,7 +11,7 @@ function playGame() {
   for (let rat of rats) {
     rat.draw();
     if (player.ratEncounter(rat)) {
-      gameState = "RAT_ENCOUNTER";
+      gameState = 'RAT_ENCOUNTER';
       if (ratsDefeated <= 5) {
         console.log('Spawning rat...');
         rat.spawn();
@@ -33,8 +22,19 @@ function playGame() {
         rat.spawn();
       }
     } else {
-      encounter = "";
+      encounter = '';
     }
+    currentScreen = 1;
+  image(screens[currentScreen], 0,0, 700, 700);
+  //statusBarBack();
+  healthBar();
+  objective();
+  if (weapon == false) {  //can also use (!weapon)
+    weaponBox();
+  } else {
+    weaponEquipped();
+    console.log('Weapon found');
+  }
   }
   
   if (player.swordGet()) {
@@ -42,10 +42,10 @@ function playGame() {
     sword.visible = false;
   }
   if (player.health <= 0){
-    gameState = "YOU_DIED";
+    gameState = 'YOU_DIED';
   }
   if (ratsDefeated === 10) {
-    gameState = "VICTORY";
+    gameState = 'VICTORY';
   }
 }
 
@@ -56,7 +56,10 @@ function startMenu() {
   //textSize(40);
   textAlign(LEFT);
   //text("GRONK", width/4, height/4);
-  image(gronkTitle, 0, 0, 700, 700);
+  //image(screenState, 0, 0, 700, 700);
+  currentScreen = 0;
+  image(screens[currentScreen], 0,0, 700, 700);
+  noStroke();
   fill(255);
   textSize(25);
   text("Press enter to start", width/4, height/2);
@@ -66,7 +69,9 @@ function startMenu() {
 
 function levelStart() {
   console.log("levelStart function called");
-  background(0);
+  //background(0);
+  currentScreen = 2;
+  image(screens[currentScreen], 0,0, 700, 700);
   fill(255);
   textSize(25);
   textAlign(LEFT);
@@ -77,10 +82,12 @@ function levelStart() {
 
 function pauseScreen() {
   console.log("pauseScreen function called");
-  background(0); //set background to black
+  //background(0); //set background to black
+  currentScreen = 3;
+  image(screens[currentScreen], 0,0, 700, 700);
   fill(255); //set text colour to white
   textSize(32);
-  textAlign(LEFT);
+  textAlign(CENTER);
   text("Game Paused", width/2, height/2);
   textSize(25);
   text("Press 'p' to resume", width/2, height/2+40);
@@ -89,7 +96,9 @@ function pauseScreen() {
 
 function victory() {
   console.log("victory function called");
-  background(0);
+  //background(0);
+  currentScreen = 3;
+  image(screens[currentScreen], 0,0, 700, 700);
   fill(255);
   textSize(40);
   textAlign(LEFT);
@@ -100,7 +109,9 @@ function victory() {
 
 function youDied() {
   console.log("youDied function called");
-  background(0);
+  //background(0);
+  currentScreen = 3;
+  image(screens[currentScreen], 0,0, 700, 700);
   fill(255, 0, 0);
   textSize(40);
   textAlign(LEFT);
@@ -111,7 +122,9 @@ function youDied() {
 
 function gameOver() {
   console.log("gameOver function called");
-  background(0);
+  //background(0);
+  currentScreen = 3;
+  image(screens[currentScreen], 0,0, 700, 700);
   fill(255, 0, 0);
   textSize(40);
   textAlign(LEFT);
