@@ -2,28 +2,18 @@
 
 // Declare the size of the grid
 const GRID_SIZE = 25;
-
-// Declare characters and game state variables
-let player, sword;
+//player + enemy
+let player, playerName, sword, rats = [];
+let encounter = "", ratsDefeated = 0, weapon = false;
+//misc
 let startTime, endTime;
-let rats = [];
-let ratsDefeated = 0;
+let nameInput;
 let textBox;
-let weapon = false;
-let encounter = "";
 let cubes = [];
-let gameState = "START_MENU";
-let gameEnded = false;
-//image names
-let screenState;
-let screenSize = 700
-let screens = [];
-let currentScreen = 0;
-let playerImage;
-let knifeImage;
-//sprite handling
-let spriteSize = 192;
-let sprites = [];
+let gameState = "START_MENU", gameEnded = false;
+//images
+let screenState, screenSize = 700, screens = [], currentScreen = 0;
+let playerImage, knifeImage, spriteSize = 192, sprites = [];
 
 function preload() {
   screenState = loadImage('images/screenStates.png'); //load in ui templates
@@ -78,6 +68,9 @@ function draw() {
       break;
     case "START_MENU":
       startMenu();
+      break;
+    case "INTRODUCTIONS":
+      introductions();
       break;
     case "START_OBJECTIVE":
       levelStart();
@@ -155,7 +148,13 @@ function keyPressed()
   }
   if (key === 'Enter') {
     if (gameState === "START_MENU") {
-      gameState = "START_OBJECTIVE";
+      gameState = "INTRODUCTIONS";
+    } else if (gameState === "INTRODUCTIONS") {
+      if (nameInput.value() !== "") {
+        nameInput.remove();
+        nameInput = null;
+        gameState = "START_OBJECTIVE";
+      }
     } else if (gameState === "START_OBJECTIVE") {
       gameState = "PLAY";
       if (!gameEnded) {

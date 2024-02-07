@@ -61,6 +61,22 @@ function startMenu() {
   text("Created by gingeapple182", width - width/3, height - height / 15);
 }
 
+function introductions() {
+  console.log('introductions function called');
+  textAlign(LEFT);
+  currentScreen = 2;
+  image(screens[currentScreen], 0, 0, 700, 700);
+  noStroke();
+  fill(255);
+  textSize(25);
+  text("What is your name?", width/4, height/2);
+  if (!nameInput) {
+    nameInput = createInput();
+    nameInput.position(width/4, height/2 + 40);
+  }
+  playerName = nameInput.value();
+}
+
 function levelStart() {
   console.log("levelStart function called");
   currentScreen = 2;
@@ -68,7 +84,7 @@ function levelStart() {
   fill(255);
   textSize(25);
   textAlign(LEFT);
-  text("Gronk you must defeat the rats surrounding us!", width/4, height/2);
+  text(playerName + " you must defeat the rats surrounding us!", width/4, height/2);
   textSize(20);
   text("Press enter to start", width/4, height/2+30);
 } 
@@ -132,7 +148,12 @@ function gameOver() {
   textSize(25);
   text("Press space to restart", width/3, height/3+30);
   text("Press 'r' to go back to home", width/3, height/3+60);
-  text('Time elapsed playing: ' + elapsedTime + ' minutes.', width/3, height/3+90);
+  if (elapsedTime < 1) {
+    elapsedTime = elapsedTime * 60;
+    text(playerName + ' survived for: ' + elapsedTime + ' seconds.', width/3, height/3+90);
+  } else {
+    text(playerName + ' survived for: ' + elapsedTime + ' minutes.', width/3, height/3+90);
+  }
 }
 
 function newGame() {
