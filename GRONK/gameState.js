@@ -96,7 +96,11 @@ function pauseScreen() {
 
 function victory() {
   console.log("victory function called");
-  //background(0);
+  if (!gameEnded) {
+    endTime = Date.now();
+    gameEnded = true;
+  }
+  let elapsedTime = ((endTime - startTime)/60000).toFixed(2);
   currentScreen = 3;
   image(screens[currentScreen], 0,0, 700, 700);
   fill(255);
@@ -105,6 +109,7 @@ function victory() {
   text("Congratulations!", width/4, height/2);
   textSize(25);
   text("Press enter to quit to main menu", width/4, height/2+40);
+  text('Time elapsed playing: ' + elapsedTime + ' minutes.', width/4, height/2+70);
 }  
 
 function youDied() {
@@ -122,7 +127,11 @@ function youDied() {
 
 function gameOver() {
   console.log("gameOver function called");
-  //background(0);
+  if (!gameEnded) {
+    endTime = Date.now();
+    gameEnded = true;
+  }
+  let elapsedTime = ((endTime - startTime)/60000).toFixed(2);
   currentScreen = 3;
   image(screens[currentScreen], 0,0, 700, 700);
   fill(255, 0, 0);
@@ -132,6 +141,7 @@ function gameOver() {
   textSize(25);
   text("Press space to restart", width/3, height/3+30);
   text("Press 'r' to go back to home", width/3, height/3+60);
+  text('Time elapsed playing: ' + elapsedTime + ' minutes.', width/3, height/3+90);
 }
 
 function newGame() {

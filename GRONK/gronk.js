@@ -5,6 +5,7 @@ const GRID_SIZE = 25;
 
 // Declare characters and game state variables
 let player, sword;
+let startTime, endTime;
 let rats = [];
 let ratsDefeated = 0;
 let textBox;
@@ -12,6 +13,7 @@ let weapon = false;
 let encounter = "";
 let cubes = [];
 let gameState = "START_MENU";
+let gameEnded = false;
 //image names
 let screenState;
 let screenSize = 700
@@ -157,6 +159,9 @@ function keyPressed()
       gameState = "START_OBJECTIVE";
     } else if (gameState === "START_OBJECTIVE") {
       gameState = "PLAY";
+      if (!gameEnded) {
+        startTime = Date.now();
+      }
     } else if (gameState === "VICTORY") {
       gameState = "START_MENU";
     }
