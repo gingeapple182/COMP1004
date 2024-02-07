@@ -26,7 +26,6 @@ function playGame() {
     }
     currentScreen = 1;
   image(screens[currentScreen], 0,0, 700, 700);
-  //statusBarBack();
   healthBar();
   objective();
   if (weapon == false) {  //can also use (!weapon)
@@ -51,12 +50,7 @@ function playGame() {
 
 function startMenu() {
   console.log("startMenu function called");
-  //background(0);
-  //fill(0, 204, 0);
-  //textSize(40);
   textAlign(LEFT);
-  //text("GRONK", width/4, height/4);
-  //image(screenState, 0, 0, 700, 700);
   currentScreen = 0;
   image(screens[currentScreen], 0,0, 700, 700);
   noStroke();
@@ -69,7 +63,6 @@ function startMenu() {
 
 function levelStart() {
   console.log("levelStart function called");
-  //background(0);
   currentScreen = 2;
   image(screens[currentScreen], 0,0, 700, 700);
   fill(255);
@@ -82,7 +75,6 @@ function levelStart() {
 
 function pauseScreen() {
   console.log("pauseScreen function called");
-  //background(0); //set background to black
   currentScreen = 3;
   image(screens[currentScreen], 0,0, 700, 700);
   fill(255); //set text colour to white
@@ -114,7 +106,6 @@ function victory() {
 
 function youDied() {
   console.log("youDied function called");
-  //background(0);
   currentScreen = 3;
   image(screens[currentScreen], 0,0, 700, 700);
   fill(255, 0, 0);

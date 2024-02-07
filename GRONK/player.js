@@ -6,7 +6,6 @@ class Player {
     this.dir = 0;
     this.health = 100;
     this.currentSprite = 0;
-    //this.playerImage = playerFront;
   }
 //player looks
   draw() {
@@ -40,7 +39,7 @@ class Player {
   ratEncounter(rat) {
     let ratRadius = min(width, height) / (2 * GRID_SIZE);
     let d = dist(this.body[0].x, this.body[0].y, rat.x, rat.y);
-    if (d < this.playerRadius + ratRadius) { // Use this.playerRadius here
+    if (d < this.playerRadius + ratRadius) {
       return true;
     } else {
       return false;

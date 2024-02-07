@@ -49,7 +49,7 @@ class Goblin {
     } while (dist(randX, randY, this.x, this.y) < GRID_SIZE || dist(randX, randY, width / 2, height / 2) < 100);
     this.x = randX - randX % (width / GRID_SIZE) + width/(2*GRID_SIZE);
     this.y = randY - randY % (height / GRID_SIZE) + height/(2*GRID_SIZE);
-    // Ensure the rat is within the correct area
+    // Ensure the goblin is within the correct area
     this.x = constrain(this.x, 10 + this.goblinRadius, width - 10 - this.goblinRadius);
     this.y = constrain(this.y, 10 + this.goblinRadius, height - 70 - this.goblinRadius);
 }
