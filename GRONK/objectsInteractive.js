@@ -25,7 +25,39 @@ class Rat {
   draw() {
     if (this.visible) {
       fill(128, 128, 128);
-      circle(this.x, this.y, this.ratRadius * 2, this.ratRadius * 2);
+      circle(this.x, this.y, this.ratRadius * 2);
+    }
+  }
+}
+
+class Goblin {
+  constructor() {
+    this.x = 0;
+    this.y = 0;
+    this.goblinRadius = min(width, height) / (2 * GRID_SIZE); // Define goblinRadius here
+    this.spawn();
+    this.visible = true;
+    this.defeated = false;
+  }
+//allow goblin to respawn after encounter
+  spawn() {
+    console.log('Rat spawned!');
+    let randX, randY;
+    do {
+      randX = random(10 + this.goblinRadius, width - 10 - this.goblinRadius);
+      randY = random(10 + this.goblinRadius, height - 70 - this.goblinRadius);
+    } while (dist(randX, randY, this.x, this.y) < GRID_SIZE || dist(randX, randY, width / 2, height / 2) < 100);
+    this.x = randX - randX % (width / GRID_SIZE) + width/(2*GRID_SIZE);
+    this.y = randY - randY % (height / GRID_SIZE) + height/(2*GRID_SIZE);
+    // Ensure the rat is within the correct area
+    this.x = constrain(this.x, 10 + this.goblinRadius, width - 10 - this.goblinRadius);
+    this.y = constrain(this.y, 10 + this.goblinRadius, height - 70 - this.goblinRadius);
+}
+//goblin looks
+  draw() {
+    if (this.visible) {
+      fill(128, 128, 128);
+      circle(this.x, this.y, this.goblinRadius * 2);
     }
   }
 }
