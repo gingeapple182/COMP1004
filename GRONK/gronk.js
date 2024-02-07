@@ -88,7 +88,8 @@ function draw() {
       pauseScreen();
       break;
     case "RAT_ENCOUNTER":
-      ratFight();
+      fightEncounter('You have encountered a wild rat.\nIt seems just as scared of you as you are of it, you can choose to attack it to scare it off, or try to get away.', 20, 'rat');
+      //ratFight();
       break;
     case "RAT_FIGHT":
       ratLose()
