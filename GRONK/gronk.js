@@ -83,13 +83,20 @@ function draw() {
       pauseScreen();
       break;
     case "RAT_ENCOUNTER":
-      fightEncounter('You have encountered a wild rat.\nIt seems just as scared of you as you are of it, you can choose to attack it to scare it off, or try to get away.', 20, 'rat');
+      fightEncounter('You have encountered a wild rat.\n\nIt seems just as scared of you as you are of it.\n\nYou can choose to attack it to scare it off, or try to get away.', 20, 'rat');
       break;
     case "RAT_FIGHT":
-      ratLose()
+      if (!weapon) {
+      encounterOutcome('You have encountered a wild rat.\n\nYou tried to fight the rat without a weapon.\n\nYou lost.', '', 20, 'rat');
+      } else {
+        encounterOutcome('You have encountered a wild rat.\n\nYou swung your sword wildly.\n\nYou lost.', '', 0, 'rat');
+      }
+      
+      //ratLose();
       break;
     case "RAT_BITE":
-      ratBite();
+      encounterOutcome('You have encountered a wild rat.\n\nYou tried to run away.\n\nThe rat bit your ankle as you tried to run.', '', 10, 'rat');
+      //ratBite();
       break;
     case "YOU_DIED":
       youDied();

@@ -24,8 +24,8 @@ function fightEncounter(encounterText, hpLoss, creature) {
   image(screens[currentScreen], 0,0, 700, 700);
 }
 
-function encounterOutcome() {
-  console.log(creature + "encounter function called");
+function encounterOutcome(encounterText, outcome, hpLoss, creature) {
+  console.log(creature + "outcome function called");
   currentScreen = 5;
   image(screens[currentScreen], 0,0, 700, 700);
   textAlign(CENTER);
@@ -36,14 +36,11 @@ function encounterOutcome() {
   textAlign(LEFT);
   textSize(20);
   drawText(encounterText, width/12, height/4, 250);
-  text("Press 'f' to fight", width/2, height - height/3+30);
+  text(outcome, width/2, height - height/3+30);
   text("Press 'r' to run away", width/2, height - height/3+60);
   fill(255, 0, 0);
   textSize(12);
-  text("Lose 10HP", width/2+200, height - height/3+60);
-  if (!weapon) {
-    text("Lose " + hpLoss + "HP", width/2+200, height - height/3+30);
-  }
+  text("Lost " + hpLoss + "HP", width/2+200, height - height/3+60);
   currentScreen = 4;
   image(screens[currentScreen], 0,0, 700, 700);
 }
