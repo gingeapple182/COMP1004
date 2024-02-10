@@ -13,11 +13,11 @@ let cubes = [];
 let gameState = "START_MENU", gameEnded = false;
 //images
 let screenState, screenSize = 700, screens = [], currentScreen = 0;
-let playerImage, knifeImage, spriteSize = 192, sprites = [];
+let playerImage, knifeImage, spriteSize = 320, sprites = [];
 
 function preload() {
   screenState = loadImage('images/screenStates.png'); //load in ui templates
-  playerSprite = loadImage('images/playerSpin.png'); //load in player sprites
+  playerSprite = loadImage('images/playerJacketSheet.png'); //load in player sprites
   knifeImage = loadImage('images/knifeBasic.png'); //load in weapon sprite
 }
 
@@ -33,8 +33,8 @@ function setup() {
     }
   }
   //load spritesheet for player
-  for (let i = 0; i < 2; i++) {
-    for (let j = 0; j < 2; j++) {
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
       let img = playerSprite.get(j * spriteSize, i * spriteSize, spriteSize, spriteSize);
       sprites.push(img);
     }

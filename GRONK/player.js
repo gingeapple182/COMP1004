@@ -18,16 +18,16 @@ class Player {
 //player movement when arrow keys held down
     if (keyIsDown(RIGHT_ARROW)) {
       this.body[0].x += 2;
-      this.currentSprite = 3;
+      this.currentSprite = 12;
     } else if (keyIsDown(DOWN_ARROW)) {
       this.body[0].y += 2;
       this.currentSprite = 0;
     } else if (keyIsDown(LEFT_ARROW)) {
       this.body[0].x -= 2;
-      this.currentSprite = 1;
+      this.currentSprite = 4;
     } else if (keyIsDown(UP_ARROW)) {
       this.body[0].y -= 2;
-      this.currentSprite = 2;
+      this.currentSprite = 8;
     } else {
       this.currentSprite = 0;
     }
