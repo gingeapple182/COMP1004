@@ -84,9 +84,10 @@ function levelStart() {
   fill(255);
   textSize(25);
   textAlign(LEFT);
-  text(playerName + " you must defeat the rats surrounding us!", width/4, height/2);
+  drawText(playerName + " you must defeat the rats surrounding us!\n\nPress enter to start!", width/4, height/2.5, 250);
+  //text(playerName + " you must defeat the rats surrounding us!", width/4, height/2);
   textSize(20);
-  text("Press enter to start", width/4, height/2+30);
+  //text("Press enter to start", width/4, height/2+30);
 } 
 
 function pauseScreen() {
