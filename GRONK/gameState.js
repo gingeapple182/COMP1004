@@ -36,9 +36,10 @@ function playGame() {
   }
   }
   
-  if (player.swordGet()) {
+  if (player.swordGet() && weapon === false) {
     weapon = true;
     sword.visible = false;
+    gameState = "WEAPON_FOUND";
   }
   if (player.health <= 0){
     gameState = 'YOU_DIED';

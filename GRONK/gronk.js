@@ -82,21 +82,21 @@ function draw() {
     case "PAUSE":
       pauseScreen();
       break;
+    case "WEAPON_FOUND":
+      encounterMisc('weapon found', 'WEAPON FOUND', 'You have found a rusted sword in a bush.\n\nYou decide to take it with you to defend yourself.', 'Weapon obtained - Rusted Sword');
+      break;
     case "RAT_ENCOUNTER":
-      fightEncounter('You have encountered a wild rat.\n\nIt seems just as scared of you as you are of it.\n\nYou can choose to attack it to scare it off, or try to get away.', 20, 'rat');
+      fightEncounter('rat', 'You have encountered a wild rat.\n\nIt seems just as scared of you as you are of it.\n\nYou can choose to attack it to scare it off, or try to get away.', 20);
       break;
     case "RAT_FIGHT":
       if (!weapon) {
-      encounterOutcome('You have encountered a wild rat.\n\nYou tried to fight the rat without a weapon.\n\nYou lost.', '', 20, 'rat');
+      encounterOutcome('rat', 'You have encountered a wild rat.\n\nYou tried to fight the rat without a weapon.\n\nYou lost.', '', 20);
       } else {
-        encounterOutcome('You have encountered a wild rat.\n\nYou swung your sword wildly.\n\nYou lost.', '', 0, 'rat');
+        encounterOutcome('rat', 'You have encountered a wild rat.\n\nYou swung your sword wildly.\n\nYou lost.', '', 0);
       }
-      
-      //ratLose();
       break;
     case "RAT_BITE":
-      encounterOutcome('You have encountered a wild rat.\n\nYou tried to run away.\n\nThe rat bit your ankle as you tried to run.', '', 10, 'rat');
-      //ratBite();
+      encounterOutcome('rat', 'You have encountered a wild rat.\n\nYou tried to run away.\n\nThe rat bit your ankle as you tried to run.', '', 10);
       break;
     case "YOU_DIED":
       youDied();
@@ -162,7 +162,7 @@ function keyPressed()
         nameInput = null;
         gameState = "START_OBJECTIVE";
       }
-    } else if (gameState === "START_OBJECTIVE") {
+    } else if (gameState === "START_OBJECTIVE"||"WEAPON_FOUND") {
       gameState = "PLAY";
       if (!gameEnded) {
         startTime = Date.now();
