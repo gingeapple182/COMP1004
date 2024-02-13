@@ -5,6 +5,7 @@ const GRID_SIZE = 25;
 //player + enemy
 let player, playerName, sword, rats = [];
 let encounter = "", ratsDefeated = 0, weapon = false;
+let levelReached = 0;
 //misc
 let startTime, endTime;
 let nameInput;
@@ -14,6 +15,12 @@ let gameState = "START_MENU", gameEnded = false;
 //images
 let screenState, screenSize = 700, screens = [], currentScreen = 0;
 let playerImage, knifeImage, spriteSize = 320, sprites = [];
+let gameDataSaved = false;
+let gameData = {
+  name: '',
+  level: 0,
+  playTime: 0
+};
 
 function preload() {
   screenState = loadImage('images/screenStates.png'); //load in ui templates
@@ -65,6 +72,9 @@ function draw() {
   switch (gameState) {
     case "PLAY":
       playGame();
+      break;    
+    case "PAUSE":
+      pauseScreen();
       break;
     case "START_MENU":
       startMenu();
@@ -75,12 +85,21 @@ function draw() {
     case "START_OBJECTIVE":
       levelStart();
       break;
-    case "VICTORY":
-      victory();
+    case "YOU_DIED":
+      youDied();
+      break;
+    case "GAME_OVER":
+      //saveJSON(gameData, 'gameData.json');
+      gameOver();
       resetGame();
       break;
-    case "PAUSE":
-      pauseScreen();
+    case "VICTORY":
+      victory();
+      if (!gameDataSaved) {
+        saveJSON(gameData, 'gameData.json');
+        gameDataSaved = true;
+      }
+      resetGame();
       break;
     case "WEAPON_FOUND":
       encounterMisc('weapon found', 'WEAPON FOUND', 'You have found a rusted sword in a bush.\n\nYou decide to take it with you to defend yourself.', 'Weapon obtained - Rusted Sword');
@@ -97,13 +116,6 @@ function draw() {
       break;
     case "RAT_BITE":
       encounterOutcome('rat', 'You have encountered a wild rat.\n\nYou tried to run away.\n\nThe rat bit your ankle as you tried to run.', '', 10);
-      break;
-    case "YOU_DIED":
-      youDied();
-      break;
-    case "GAME_OVER":
-      gameOver();
-      resetGame();
       break;
   }
 }

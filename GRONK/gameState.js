@@ -2,6 +2,7 @@
 
 function playGame() {
   console.log('playGame function called');
+  levelReached = levelReached + 1;
   textSize(15);
   drawMap();
   player.move();
@@ -47,6 +48,7 @@ function playGame() {
   if (ratsDefeated === 10) {
     gameState = 'VICTORY';
   }
+  gameData.level = levelReached;
 }
 
 function startMenu() {
@@ -76,6 +78,8 @@ function introductions() {
     nameInput.position(width/4, height/2 + 40);
   }
   playerName = nameInput.value();
+  gameData.name = playerName;
+  //saveJSON(gameData, 'gameData.json');
 }
 
 function levelStart() {
@@ -120,6 +124,8 @@ function victory() {
   textSize(25);
   text("Press enter to quit to main menu", width/4, height/2+40);
   text('Time elapsed playing: ' + elapsedTime + ' minutes.', width/4, height/2+70);
+  gameData.playTime = elapsedTime;
+  //saveJSON(gameData, 'gameData.json');
 }  
 
 function youDied() {
@@ -156,6 +162,7 @@ function gameOver() {
   } else {
     text(playerName + ' survived for: ' + elapsedTime + ' minutes.', width/3, height/3+90);
   }
+  gameData.playTime = elapsedTime;
 }
 
 function newGame() {
