@@ -2,6 +2,7 @@
 
 // Declare the size of the grid
 const GRID_SIZE = 25;
+let canvas;
 //player + enemy
 let player, playerName, sword, rats = [];
 let encounter = "", ratsDefeated = 0, weapon = false;
@@ -30,7 +31,10 @@ function preload() {
 
 // Setup function: creates the canvas, initializes the characters, and generates the cubes
 function setup() {
-  createCanvas(700, 700);
+  canvas = createCanvas(700, 700);
+  canvas.id('myCanvas');
+  nameInput = createInput();
+  nameInput.hide();
   player = new Player();
   //load spritesheet for game screens
   for (let i = 0; i < 2; i++) {
@@ -89,9 +93,12 @@ function draw() {
       youDied();
       break;
     case "GAME_OVER":
-      //saveJSON(gameData, 'gameData.json');
       gameOver();
-      resetGame();
+      if (!gameDataSaved) {
+        saveJSON(gameData, 'gameData.json');
+        gameDataSaved = true;
+      }
+      //resetGame();
       break;
     case "VICTORY":
       victory();
@@ -102,20 +109,63 @@ function draw() {
       resetGame();
       break;
     case "WEAPON_FOUND":
-      encounterMisc('weapon found', 'WEAPON FOUND', 'You have found a rusted sword in a bush.\n\nYou decide to take it with you to defend yourself.', 'Weapon obtained - Rusted Sword');
+      encounterMisc(
+        'weapon found', 
+        'WEAPON FOUND', 
+        'You have found a rusted sword in a bush.\n\n' +
+        'You decide to take it with you to defend yourself.', 
+        'Weapon obtained - Rusted Sword'
+      );
       break;
     case "RAT_ENCOUNTER":
-      fightEncounter('rat', 'You have encountered a wild rat.\n\nIt seems just as scared of you as you are of it.\n\nYou can choose to attack it to scare it off, or try to get away.', 20);
+      if (weapon) {
+        fightEncounter(
+          'rat',
+          'You have encountered a wild rat.\n' + 
+          '\nYou now have a rusted sword to defend yourself.\n' +
+          '\nYou can choose to attack it to scare it off, or try to get away.',
+          20
+        );
+      } else {  
+        fightEncounter(
+          'rat', 
+          'You have encountered a wild rat.\n\n' +
+          'It seems just as scared of you as you are of it.\n\n' +
+          'You can choose to attack it to scare it off, or try to get away.', 
+          20
+        );
+      }
       break;
     case "RAT_FIGHT":
       if (!weapon) {
-      encounterOutcome('rat', 'You have encountered a wild rat.\n\nYou tried to fight the rat without a weapon.\n\nYou lost.', '', 20);
+        encounterOutcome(
+          'rat', 
+          'You have encountered a wild rat.\n\n' +
+          'You tried to fight the rat without a weapon.\n\n' +
+          'You lost.', 
+          '', 
+          20
+        );
       } else {
-        encounterOutcome('rat', 'You have encountered a wild rat.\n\nYou swung your sword wildly.\n\nYou lost.', '', 0);
+        encounterOutcome(
+          'rat', 
+          'You have encountered a wild rat.\n\n' +
+          'You swung your sword wildly.\n\n' +
+          'You lost.', 
+          '', 
+          0
+        );
       }
       break;
     case "RAT_BITE":
-      encounterOutcome('rat', 'You have encountered a wild rat.\n\nYou tried to run away.\n\nThe rat bit your ankle as you tried to run.', '', 10);
+      encounterOutcome(
+        'rat', 
+        'You have encountered a wild rat.\n\n' +
+        'You tried to run away.\n\n' +
+        'The rat bit your ankle as you tried to run.', 
+        '', 
+        10
+      );
       break;
   }
 }
@@ -144,6 +194,7 @@ function keyPressed()
   if (key === 'q' || key === 'Q') {
     if (gameState === "PAUSE") {
       gameState = "START_MENU";
+      resetGame();
     }
   }
   if (key === 'r' || key === 'R') {
@@ -156,6 +207,7 @@ function keyPressed()
       gameState = "PLAY";
     } else if (gameState === "GAME_OVER") {
       gameState = "START_MENU";
+      resetGame();
     }
   }
   if (key === ' ') {
@@ -174,11 +226,14 @@ function keyPressed()
         nameInput = null;
         gameState = "START_OBJECTIVE";
       }
-    } else if (gameState === "START_OBJECTIVE"||"WEAPON_FOUND") {
+    } else if (gameState === "START_OBJECTIVE") {
       gameState = "PLAY";
       if (!gameEnded) {
         startTime = Date.now();
       }
+      levelReached = levelReached + 1;
+    } else if (gameState === "WEAPON_FOUND") {
+      gameState = "PLAY";
     } else if (gameState === "VICTORY") {
       gameState = "START_MENU";
     }

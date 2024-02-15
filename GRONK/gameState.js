@@ -2,7 +2,7 @@
 
 function playGame() {
   console.log('playGame function called');
-  levelReached = levelReached + 1;
+  //levelReached = levelReached + 1;
   textSize(15);
   drawMap();
   player.move();
@@ -73,10 +73,12 @@ function introductions() {
   fill(255);
   textSize(25);
   text("What is your name?", width/4, height/2);
-  if (!nameInput) {
-    nameInput = createInput();
-    nameInput.position(width/4, height/2 + 40);
-  }
+  
+  // Position the input box relative to the canvas
+  let canvasPos = canvas.position();
+  nameInput.position(canvasPos.x + width/4 - 350, canvasPos.y + height/2 + 40/* - 350*/);
+  nameInput.show(); // Show the input box
+
   playerName = nameInput.value();
   gameData.name = playerName;
   //saveJSON(gameData, 'gameData.json');
@@ -89,10 +91,8 @@ function levelStart() {
   fill(255);
   textSize(25);
   textAlign(LEFT);
-  drawText(playerName + " you must defeat the rats surrounding us!\n\nPress enter to start!", width/4, height/2.5, 250);
-  //text(playerName + " you must defeat the rats surrounding us!", width/4, height/2);
+  drawText(playerName + " you must defeat the rats surrounding us!\n\nPress enter to start!", width/4, height/2.5, 25, 250);
   textSize(20);
-  //text("Press enter to start", width/4, height/2+30);
 } 
 
 function pauseScreen() {
@@ -125,7 +125,6 @@ function victory() {
   text("Press enter to quit to main menu", width/4, height/2+40);
   text('Time elapsed playing: ' + elapsedTime + ' minutes.', width/4, height/2+70);
   gameData.playTime = elapsedTime;
-  //saveJSON(gameData, 'gameData.json');
 }  
 
 function youDied() {

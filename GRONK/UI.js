@@ -58,9 +58,9 @@ function objective() {
   text('Rats defeated: ' + ratsDefeated, 355, 670);
 }
 
-function drawText(input, x, y, maxWidth) {
+function drawText(input, x, y, size, maxWidth) {
   let lines = input.split('\n'); //split for new line 
-  let lineHeight = 20; //line height
+  //let lineHeight = 20; //line height
 
   for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
     let words = lines[lineIndex].split(' '); //split lines into array of words
@@ -72,12 +72,17 @@ function drawText(input, x, y, maxWidth) {
       if (testWidth > maxWidth && i > 0) {
         text(line, x, y); //print line
         line = words[i] + ' '; //start new line with word that went too long
-        y += lineHeight; //increase line height
+        y += size; //increase line height
       } else {
         line = testLine;
       }
     }
     text(line, x, y); //print line
-    y += lineHeight; //increase line height
+    y += size; //increase line height
   }
+}
+
+function windowResized() { //keep name input text box in the correct location relevant to the canvas
+  let canvasPos = canvas.position();
+  nameInput.position(canvasPos.x + width/4 - 350, canvasPos.y + height/2 + 40 - 350);
 }

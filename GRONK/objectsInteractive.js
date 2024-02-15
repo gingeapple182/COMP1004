@@ -41,7 +41,7 @@ class Goblin {
   }
 //allow goblin to respawn after encounter
   spawn() {
-    console.log('Rat spawned!');
+    console.log('Goblin spawned!');
     let randX, randY;
     do {
       randX = random(10 + this.goblinRadius, width - 10 - this.goblinRadius);
