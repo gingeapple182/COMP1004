@@ -132,6 +132,7 @@ function youDied() {
   currentScreen = 3;
   image(screens[currentScreen], 0,0, 700, 700);
   fill(255, 0, 0);
+  noStroke();
   textSize(40);
   textAlign(LEFT);
   text("You died", width/3, height/3);
