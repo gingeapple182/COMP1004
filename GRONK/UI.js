@@ -60,7 +60,6 @@ function objective() {
 
 function drawText(input, x, y, size, maxWidth) {
   let lines = input.split('\n'); //split for new line 
-  //let lineHeight = 20; //line height
 
   for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
     let words = lines[lineIndex].split(' '); //split lines into array of words

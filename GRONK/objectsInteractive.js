@@ -30,7 +30,7 @@ class Rat {
   }
 }
 
-class Goblin {
+/*class Goblin {
   constructor() {
     this.x = 0;
     this.y = 0;
@@ -60,7 +60,7 @@ class Goblin {
       circle(this.x, this.y, this.goblinRadius * 2);
     }
   }
-}
+}*/
 
 class Sword {
   constructor() {
