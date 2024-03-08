@@ -143,7 +143,7 @@ function draw() {
           'You have encountered a wild rat.\n\n' +
           'You tried to fight the rat without a weapon.\n\n' +
           'You lost.', 
-          '', 
+          'Lost 20 HP', 
           20
         );
       } else {
@@ -151,8 +151,9 @@ function draw() {
           'rat', 
           'You have encountered a wild rat.\n\n' +
           'You swung your sword wildly.\n\n' +
-          'You lost.', 
-          '', 
+          'You defeated the rat.\n\n' +
+          'You feel guilty that you murdered an innocent rat.  You monster.', 
+          'Rat Defeated', 
           0
         );
       }
@@ -163,7 +164,7 @@ function draw() {
         'You have encountered a wild rat.\n\n' +
         'You tried to run away.\n\n' +
         'The rat bit your ankle as you tried to run.', 
-        '', 
+        'Lost 10 HP', 
         10
       );
       break;
@@ -187,7 +188,7 @@ function keyPressed()
       }
       if (weapon === true) {
         ratsDefeated++;
-        gameState = "PLAY";
+        gameState = "RAT_FIGHT";
       }
     }
   }
