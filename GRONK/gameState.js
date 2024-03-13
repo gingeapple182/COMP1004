@@ -60,6 +60,8 @@ function startMenu() {
   fill(255);
   textSize(25);
   text("Press enter to start", width/4, height/2);
+  //textSize(20);
+  text("Press L for leaderboards", width/4, height-(height/3));
   textSize(15);
   text("Created by gingeapple182", width - width/3, height - height / 15);
 }
@@ -82,6 +84,26 @@ function introductions() {
   playerName = nameInput.value();
   gameData.name = playerName;
   //saveJSON(gameData, 'gameData.json');
+}
+
+function leaderBoard() {
+  console.log('leaderBoard function called');
+  textAlign(LEFT);
+  currentScreen = 3;
+  image(screens[currentScreen], 0, 0, 700, 700);
+  noStroke();
+  fill(255);
+  textSize(25);
+  text("Leaderboard", width/4, height/4);
+  //textSize(15);
+  drawText(
+    "1." + /*INSERT JSON LEADERBOARD HERE*/"\n\n" +
+    "2.\n\n"+
+    "3.\n\n"+
+    "4.\n\n"+
+    "5."
+    , width/4, height/4+50, 20, 400);
+  text("Press R to return to menu", (width/4), height-(height/5));
 }
 
 function levelStart() {

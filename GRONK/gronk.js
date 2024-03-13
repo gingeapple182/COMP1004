@@ -83,6 +83,9 @@ function draw() {
     case "START_MENU":
       startMenu();
       break;
+    case "LEADERBOARD":
+      leaderBoard();
+      break;
     case "INTRODUCTIONS":
       introductions();
       break;
@@ -173,13 +176,7 @@ function draw() {
 
 function keyPressed() 
 {
-  if (key === 'p' || key === 'P') {
-    if (gameState === "PLAY") {
-      gameState = "PAUSE";
-    } else if (gameState === "PAUSE") {
-      gameState = "PLAY";
-    }
-  }
+  
   if (key === 'f' || key === 'F'){
     if (gameState === "RAT_ENCOUNTER") {
       if (weapon === false) {
@@ -192,6 +189,18 @@ function keyPressed()
       }
     }
   }
+  if (key === 'l' || key === 'L') {
+    if (gameState === "START_MENU") {
+      gameState = "LEADERBOARD";
+    }
+  }
+  if (key === 'p' || key === 'P') {
+    if (gameState === "PLAY") {
+      gameState = "PAUSE";
+    } else if (gameState === "PAUSE") {
+      gameState = "PLAY";
+    }
+    }
   if (key === 'q' || key === 'Q') {
     if (gameState === "PAUSE") {
       gameState = "START_MENU";
@@ -209,6 +218,8 @@ function keyPressed()
     } else if (gameState === "GAME_OVER") {
       gameState = "START_MENU";
       resetGame();
+    } else if (gameState === "LEADERBOARD") {
+      gameState = "START_MENU";
     }
   }
   if (key === ' ') {
