@@ -16,12 +16,18 @@ let gameState = "START_MENU", gameEnded = false;
 //images
 let screenState, screenSize = 700, screens = [], currentScreen = 0;
 let playerImage, knifeImage, spriteSize = 320, sprites = [];
-let gameDataSaved = false;
+let gameDataSaved = false, leaderBoardData;
 let gameData = {
   name: '',
   level: 0,
   playTime: 0
 };
+
+function loadLeaderboard() {
+  loadJSON('leaderboard.json', data => {
+    leaderBoardData = data;
+  });
+}
 
 function preload() {
   screenState = loadImage('images/screenStates.png'); //load in ui templates
@@ -36,6 +42,7 @@ function setup() {
   nameInput = createInput();
   nameInput.hide();
   player = new Player();
+  loadLeaderboard();
   //load spritesheet for game screens
   for (let i = 0; i < 2; i++) {
     for (let j = 0; j < 3; j++) {

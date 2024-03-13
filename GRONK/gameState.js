@@ -95,14 +95,17 @@ function leaderBoard() {
   fill(255);
   textSize(25);
   text("Leaderboard", width/4, height/4);
-  //textSize(15);
-  drawText(
-    "1." + /*INSERT JSON LEADERBOARD HERE*/"\n\n" +
-    "2.\n\n"+
-    "3.\n\n"+
-    "4.\n\n"+
-    "5."
-    , width/4, height/4+50, 20, 400);
+  if (leaderBoardData) {
+    let leaderBoardText = '';
+    for (let i = 0; i<5; i++) {
+      if (leaderBoardData[i]) {
+        leaderBoardText += (i+1) + '. ' + leaderBoardData[i].name + '\n\n';
+       } else { 
+        leaderBoardText += (i+1) + '. \n\n';
+       }
+    }
+    drawText(leaderBoardText, width/4, height/4+50, 20, 400);
+  }
   text("Press R to return to menu", (width/4), height-(height/5));
 }
 
