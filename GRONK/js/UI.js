@@ -24,11 +24,6 @@ function drawMap() {
   stroke(0);
 }
 
-function statusBarBack() {
-  fill(128, 128, 128);
-  rect(0, 630, 700, 70); //(location, location, size, size)
-}
-
 function healthBar() {
   fill(0);
   textAlign(CENTER);
