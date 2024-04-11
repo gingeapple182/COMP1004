@@ -18,19 +18,18 @@ aim to create a hypertext fiction game
 	- Win lose battles based off items found
 
 ## sprint goals
-1. [ ] research a background for *why* a hypertext game is important? 
+1. [x] research a background for *why* a hypertext game is important? 
 2. [x] write my **project vision** for what I aim to achieve
 3. [x] create user stories
-4. [x] reorganise and make *practical* plans for sprints
-5. [ ] note issues/challenges likely to face //like the fact ive never coded html/java/css
+4. [x] complete sprints
+5. [ ] note issues/challenges likely to face
 6. [x] design a prototype
 7. [ ] fill out the design document template?
-8. [ ] UML diagrams - use cases - classes? - interaction disgrams 
+8. [ ] UML diagrams - use cases - classes? - interaction diagrams 
 9. [x] product backlog (failed parts of sprints?)
-10. [x] sprint plans - github planner
 
 ## interim video - 15/01/24 - COMPLETED
-4 minute video covering the follwoing topics regarding my project progress
+4 minute video covering the following topics regarding my project progress
 * Project vision + background
 * project plan and already completed sprints
 * UML models
@@ -57,4 +56,3 @@ aim to create a hypertext fiction game
   - architecture?
 * reflective account of the issues/challenges
   - 500 words
-* use this site to check the plagarism score before submitting [Turnitin](http://www.turnitinuk.com/)

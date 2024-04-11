@@ -30,9 +30,9 @@ function loadLeaderboard() {
 }
 
 function preload() {
-  screenState = loadImage('img/screenStates.png'); //load in ui templates
-  playerSprite = loadImage('img/playerJacketSheet.png'); //load in player sprites
-  knifeImage = loadImage('img/knifeBasic.png'); //load in weapon sprite
+  screenState = loadImage('images/screenStates.png'); //load in ui templates
+  playerSprite = loadImage('images/playerJacketSheet.png'); //load in player sprites
+  knifeImage = loadImage('images/knifeBasic.png'); //load in weapon sprite
 }
 
 // Setup function: creates the canvas, initializes the characters, and generates the cubes
