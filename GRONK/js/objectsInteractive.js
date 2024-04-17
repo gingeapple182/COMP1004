@@ -10,6 +10,7 @@ class Rat {
 //allow rat to respawn after encounter
   spawn() {
     console.log('Rat spawned!');
+    //randomise spawning location
     let randX, randY;
     do {
       randX = random(10 + this.ratRadius, width - 10 - this.ratRadius);

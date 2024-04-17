@@ -58,6 +58,7 @@ function setup() {
     }
   }
   sword = new Sword();
+  //spawn in first 5 rats to screen
   for (let i = 0; i < 5; i++) {
     rats[i] = new Rat();
   }
@@ -108,7 +109,6 @@ function draw() {
         saveJSON(gameData, 'gameData.json');
         gameDataSaved = true;
       }
-      //resetGame();
       break;
     case "VICTORY":
       victory();
@@ -183,7 +183,6 @@ function draw() {
 
 function keyPressed() 
 {
-  
   if (key === 'f' || key === 'F'){
     if (gameState === "RAT_ENCOUNTER") {
       if (weapon === false) {

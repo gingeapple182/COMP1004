@@ -53,6 +53,7 @@ function objective() {
   text('Rats defeated: ' + ratsDefeated, 355, 670);
 }
 
+//create manual function to allow the use of \n to start a new line of text on screen
 function drawText(input, x, y, size, maxWidth) {
   let lines = input.split('\n'); //split for new line 
 
@@ -76,7 +77,8 @@ function drawText(input, x, y, size, maxWidth) {
   }
 }
 
-function windowResized() { //keep name input text box in the correct location relevant to the canvas
+//keep name input text box in the correct location relevant to the canvas
+function windowResized() { 
   let canvasPos = canvas.position();
   nameInput.position(canvasPos.x + width/4 - 350, canvasPos.y + height/2 + 40 - 350);
 }

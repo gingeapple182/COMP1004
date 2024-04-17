@@ -1,15 +1,16 @@
-//GAME STATES FOR VISUALS
+//this file contains functions which handle the various screens of the core game
 
 function playGame() {
   console.log('playGame function called');
-  //levelReached = levelReached + 1;
+  //levelReached = levelReached + 1; //future levels needed
   textSize(15);
   drawMap();
   player.move();
   player.draw();
   sword.draw();
 
-  for (let rat of rats) {
+  //create rats, only 5 at a time, after first 5 defeated stop spawning
+  for (let rat of rats) { 
     rat.draw();
     if (player.ratEncounter(rat)) {
       gameState = 'RAT_ENCOUNTER';
@@ -25,7 +26,8 @@ function playGame() {
     } else {
       encounter = '';
     }
-    currentScreen = 1;
+  //load in visuals for main game screen
+  currentScreen = 1;
   image(screens[currentScreen], 0,0, 700, 700);
   healthBar();
   objective();
@@ -42,6 +44,7 @@ function playGame() {
     sword.visible = false;
     gameState = "WEAPON_FOUND";
   }
+  //win/loss condition
   if (player.health <= 0){
     gameState = 'YOU_DIED';
   }
@@ -80,10 +83,9 @@ function introductions() {
   let canvasPos = canvas.position();
   nameInput.position(canvasPos.x + width/4 - 350, canvasPos.y + height/2 + 40/* - 350*/);
   nameInput.show(); // Show the input box
-
   playerName = nameInput.value();
+  //update gameData for JSON
   gameData.name = playerName;
-  //saveJSON(gameData, 'gameData.json');
 }
 
 function leaderBoard() {
@@ -95,6 +97,7 @@ function leaderBoard() {
   fill(255);
   textSize(25);
   text("Leaderboard", width/4, height/4);
+  //load in and how data from JSON file
   if (leaderBoardData) {
     let leaderBoardText = '';
     for (let i = 0; i<5; i++) {
@@ -124,7 +127,7 @@ function pauseScreen() {
   console.log("pauseScreen function called");
   currentScreen = 3;
   image(screens[currentScreen], 0,0, 700, 700);
-  fill(255); //set text colour to white
+  fill(255);
   textSize(32);
   textAlign(CENTER);
   text("Game Paused", width/2, height/2);
@@ -135,6 +138,7 @@ function pauseScreen() {
 
 function victory() {
   console.log("victory function called");
+  //end timer and calculate play time
   if (!gameEnded) {
     endTime = Date.now();
     gameEnded = true;
@@ -167,6 +171,7 @@ function youDied() {
 
 function gameOver() {
   console.log("gameOver function called");
+    //end timer and calculate play time
   if (!gameEnded) {
     endTime = Date.now();
     gameEnded = true;
