@@ -1,58 +1,12 @@
-# COMP1004
+# GRONK
 
-aim to create a hypertext fiction game 
+My project aims to create an engaging 2D adventure game using pixel art style and web technologies. Players will explore diverse environments, interact with characters, and make choices that impact the game's narrative. Inspired by classic adventure games, the focus is on providing a fun and interactive experience for players of all ages. Through simple yet compelling gameplay mechanics, my goal is to deliver an enjoyable gaming experience that encourages exploration and fosters creativity. By balancing entertainment with accessibility, the project seeks to capture the essence of retro gaming while embracing modern design principles.
 
-## ideas
-> 1.	Maze
->	- Have each junction be where the player can choose a direction
->	- Some dead ends allow you to turn around
->	- Some could be a failed screen/animation?
->	- End screens could show time spent trapped in the maze
-> 2.	Escape from somewhere
->	- Multiple rooms with items to pickup 
->	- Have to collect certain items to access rooms
->	- Could have certain items create noise​ to get you caught/fail
-3.	RPG style game (the Bards tale/wasteland/Ultima1)
-	- Small grid-based game
-	- Encounters/fights on certain points
-	- Win lose battles based off items found
+## The game
+Gronk features a simple 2D pixel art style adventure game, you are tasked initially to defeat rats that are attacking your town, you may achieve this by stopping them and interacting, you may choose wether to attack them head on or find a solution more efficient in dealing with them.
+Over time I aim to enhance the story through branching narrative storylines dependant on how you choose to overcome various obstacles.
+A lot of emphasis during development has been on ensuring i created efficient and reuseable code, so that as the story becomes more fleshed out and complete, it is much simpler to build upon what has already been created so far. More levels will be added, more story will be created and much more.
+![image](https://github.com/gingeapple182/COMP1004/assets/129097817/9d4b07c4-96a4-4a3f-bb2b-c2a0c4c04c66)
 
-## sprint goals
-1. [x] research a background for *why* a hypertext game is important? 
-2. [x] write my **project vision** for what I aim to achieve
-3. [x] create user stories
-4. [x] complete sprints
-5. [ ] note issues/challenges likely to face
-6. [x] design a prototype
-7. [ ] fill out the design document template?
-8. [ ] UML diagrams - use cases - classes? - interaction diagrams 
-9. [x] product backlog (failed parts of sprints?)
-
-## interim video - 15/01/24 - COMPLETED
-4 minute video covering the following topics regarding my project progress
-* Project vision + background
-* project plan and already completed sprints
-* UML models
-* prototype
-* description of challenges/issues
-
-## final presentation
-6 minute presentation covering the following
-1. functioning game
-2. project plan + sprints
-3. UML diagrams
-4. summary of issues/challenges
-5. poster?
-
-### extra stuff 
-* final project plan
-	- backlog
-	- sprints
-* UML diagrams
-* This repo
-  - change this to be a simpler outline of the project
-* poster
-  - key features of the game
-  - architecture?
-* reflective account of the issues/challenges
-  - 500 words
+## Poster
+![image](https://github.com/gingeapple182/COMP1004/assets/129097817/2c7f1965-b8d9-417b-a559-b502bd53b7b7)
